@@ -1,0 +1,4 @@
+repository "RPG Project@huazzz@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
