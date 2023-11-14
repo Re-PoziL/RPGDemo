@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5467508dbe4b074bb7b58e9694a0d2b, type: 3}
+  m_Name: Profiterole
+  m_EditorClassIdentifier: 
+  itemId: 3
+  itemName: Profiterole
+  description: A cream-filled dessert. It's been sitting out way too long, and the
+    once-flaky crust is now soft and mushy. It is... quite different from the crispy
+    texture you imagined. After trying a single bite, you want to just pass the "death
+    sentence" on this erstwhile dessert.
+  itemSprite: {fileID: 21300000, guid: 219a37e2285a29345ad2d3abcd0809d8, type: 3}

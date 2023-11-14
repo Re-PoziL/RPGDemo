@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5467508dbe4b074bb7b58e9694a0d2b, type: 3}
+  m_Name: SweetMadame
+  m_EditorClassIdentifier: 
+  itemId: 2
+  itemName: SweetMadame
+  description: Honey-roasted fowl. The sweet flowers have been burnt off, revealing
+    the bitter taste of the overcooked fowl.
+  itemSprite: {fileID: 21300000, guid: a27ef01f58d4bc54cb482b71cd4f2156, type: 3}

@@ -102,9 +102,10 @@ namespace RPG.Control
             return raycastHits;
         }
 
+        //检查是否在ui上
         private bool InteractWithUI()
         {
-            if(EventSystem.current.IsPointerOverGameObject())
+            if (EventSystem.current.IsPointerOverGameObject())
             {
                 SetCursor(CursorType.UI);
                 return true;

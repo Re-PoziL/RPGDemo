@@ -126,7 +126,6 @@ namespace RPG.Combat
             target = combatTarget.transform;
             GetComponent<ActionScheduler>().StartAction(this);
             
-
         }
 
         public void Cancel()

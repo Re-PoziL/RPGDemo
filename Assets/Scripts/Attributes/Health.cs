@@ -90,7 +90,10 @@ namespace RPG.Attributes
             if(health == 0)
             {
                 Die();
-                AwardExperience(attacker);
+                if (attacker.CompareTag("Player"))
+                {
+                    AwardExperience(attacker);
+                }
             }
         }
 
