@@ -17,7 +17,10 @@ namespace RPG.UI
             {
                 choose.SetActive(!choose.activeSelf);
             });
+            choose.SetActive(false);
         }
+
+
 
     }
 }

@@ -1,3 +1,4 @@
+using RPG.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,15 @@ public class ChooseUI : MonoBehaviour
     private void Start()
     {
         useButton.onClick.AddListener(() =>{
-            Debug.Log("use");  
+            Debug.Log("use");
+            transform.GetComponentInParent<BagItem>().gameObject.SetActive(false);
         });
 
         discardButton.onClick.AddListener(() => {
             Debug.Log("discard");
+            transform.GetComponentInParent<BagItem>().gameObject.SetActive(false);
         });
+        
     }
 
 

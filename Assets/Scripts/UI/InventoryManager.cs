@@ -3,6 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using RPG.UI;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class InventoryManager:MonoBehaviour
 {
@@ -21,52 +22,42 @@ public class InventoryManager:MonoBehaviour
 
     private void Start()
     {
-
-        SaveInventory(inventory, filePath);
-        /*if (inventory != null)
-        {
-            foreach (Item item in inventory.items)
-            {
-                GameObject go = Instantiate(itemContainer, transform);
-                go.GetComponent<BagItem>().image.GetComponent<Image>().sprite = item.itemSprite;
-            }
-            SaveInventory(inventory, filePath);
-
-        }*/
-    }
-
-    private void OnDestroy()
-    {
-     //   SaveInventory(inventory, filePath);
-    }
-
-    public static void SaveInventory(Inventory inventory,string filePath)
-    {
+        LoadInventory(filePath);
         foreach (var item in inventory.items)
         {
-            Debug.Log(item);
+            GameObject go = Instantiate(itemContainer, transform);
+            go.GetComponent<BagItem>().image.GetComponent<Image>().sprite = item.itemSprite;
+            
         }
-        Item[] items = inventory.items.ToArray();
-        // 序列化数组
-        string jsonData = JsonUtility.ToJson(items);
+    }
 
-        Debug.Log(jsonData);
+
+
+    [MenuItem("CMD/SaveInventory")]
+    public static void SaveInventory()
+    {
+        var jsonData = JsonUtility.ToJson(Instance.inventory);
+        // 保存到文件
+        System.IO.File.WriteAllText(filePath, jsonData);
+    }
+
+    
+    public static void SaveInventory(Inventory inventory,string filePath)
+    {
+        var jsonData = JsonUtility.ToJson(inventory);
         // 保存到文件
         System.IO.File.WriteAllText(filePath, jsonData);
     }
 
 
-    public static Item[] LoadInventory(string filePath)
+    public void LoadInventory(string filePath)
     {
         if (File.Exists(filePath))
         {
             string jsonData = File.ReadAllText(filePath);
-            Item[] itemArray = JsonUtility.FromJson<Item[]>(jsonData);
-            return itemArray;
+            JsonUtility.FromJsonOverwrite(jsonData, inventory);
+            Debug.Log(jsonData);
         }
-        else
-        {
-            return null;
-        }
+        
     }
 }
