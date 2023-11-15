@@ -17,6 +17,7 @@ namespace RPG.Control
         [SerializeField] private PatrolPath patrolPath;
         [SerializeField] private float waypointTolerance = 1f;
         [SerializeField] private float patrolPointWaitTimeMax = 2f;
+
         private GameObject player;
         private Fighter fighter;
         private Health health;
@@ -84,7 +85,12 @@ namespace RPG.Control
 
         private void AggravateNearEnemies()
         {
-            RaycastHit[] hits =  Physics.SphereCastAll(transform.position, 3f, Vector3.up, 0);
+            RaycastHit[] hits =  Physics.SphereCastAll(transform.position,1f,Vector3.down,LayerMask.GetMask("Enemy"));
+            foreach (var item in hits)
+            {
+                Debug.Log(item.transform.name);
+
+            }
             foreach (RaycastHit hit in hits)
             {
                 hit.collider.GetComponent<AIController>()?.Aggravate(0f,gameObject);
@@ -141,5 +147,6 @@ namespace RPG.Control
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, chaseDistance);
         }
+
     }
 }
