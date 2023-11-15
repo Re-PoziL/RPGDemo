@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ namespace RPG.UI
         public Button button;
         public Image image;
         public GameObject choose;
+        public TextMeshProUGUI numberText;
         private void Start()
         {
             
@@ -18,9 +20,8 @@ namespace RPG.UI
                 choose.SetActive(!choose.activeSelf);
             });
             choose.SetActive(false);
+
         }
-
-
 
     }
 }
