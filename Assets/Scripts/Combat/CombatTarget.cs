@@ -14,6 +14,10 @@ namespace RPG.Combat
 
         public bool HandleRaycast(PlayerController playerController)
         {
+            if(gameObject == playerController.gameObject)
+            {
+                return false;
+            }
             if (gameObject.GetComponent<Health>().IsDie())
                 return false;
             if(Input.GetMouseButton(0))

@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class CloseButton : MonoBehaviour
 {
-    public event Action OnCloseButtonDown;
-
+    
     private void Start()
     {
         GetComponent<Button>().onClick.AddListener(() =>
         {
-            OnCloseButtonDown?.Invoke();
+            //OnCloseButtonDown?.Invoke();
+            transform.parent.gameObject.SetActive(false);
         });
     }
 }

@@ -23,7 +23,7 @@ public class StoreChoose : MonoBehaviour
     {
         number = int.Parse(numberText.text);
         buyButton.onClick.AddListener(() =>{
-            Debug.Log("use");
+            Debug.Log("buy");
             number--;
             numberText.text = number.ToString();
             OnBuy?.Invoke();
@@ -35,8 +35,8 @@ public class StoreChoose : MonoBehaviour
 
         cancelButton.onClick.AddListener(() =>
         {
-            Debug.Log("discard");
-            transform.GetComponentInParent<StoreItem>().gameObject.SetActive(false);
+            Debug.Log("cancel");
+            gameObject.SetActive(false);
         });
         
     }
