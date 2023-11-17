@@ -17,21 +17,34 @@ public class ControlPanel : MonoBehaviour
 
     public Image pressToBinding;
 
+    private void Awake()
+    {
+        UpdateText();
+    }
 
     private void Start()
     {
+
         storeButton.onClick.AddListener(() =>
         {
-            ShowpressToBinding();
+            RebindButton(Binding.Store);
         });
         bagButton.onClick.AddListener(() =>
         {
-            ShowpressToBinding();
+            RebindButton(Binding.Bag);
         });
         optionButton.onClick.AddListener(() =>
         {
-            ShowpressToBinding();
+            RebindButton(Binding.Option);
         });
+
+    }
+
+    void UpdateText()
+    {
+        storeText.text = InputSystem.Instance.GetBinding(Binding.Store);
+        bagText.text = InputSystem.Instance.GetBinding(Binding.Bag);
+        optionText.text = InputSystem.Instance.GetBinding(Binding.Option);
     }
 
     private void ShowpressToBinding()
@@ -42,6 +55,17 @@ public class ControlPanel : MonoBehaviour
 
     private void HidepressToBinding()
     {
-        pressToBinding.gameObject.SetActive(true);
+        pressToBinding.gameObject.SetActive(false);
     }
+
+    private void RebindButton(Binding binding)
+    {
+        ShowpressToBinding();
+        InputSystem.Instance.ReBinding(binding, () =>
+         {
+             UpdateText();
+             HidepressToBinding();
+         });
+    }
+
 }
